@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OpenTelemetry.Trace;
+using OpenTelemetryExtensions.HttpClient;
 
 namespace JokeCentral
 {
@@ -17,6 +18,7 @@ namespace JokeCentral
                 builder
                     .AddAspNetCoreInstrumentation()
                     .AddHttpClientInstrumentation()
+                    .AddProcessor(new ActivityNameProcessor())
                     .AddConsoleExporter()
             );
         }

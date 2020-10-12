@@ -18,5 +18,8 @@
     <ProjectReference Include="..\JokeCentral.Api\JokeCentral.Api.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\OpenTelemetryExtensions\OpenTelemetryExtensions.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
