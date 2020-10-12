@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using JokeCentral.Api;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JokeCentral.Controllers
 {
@@ -6,7 +7,7 @@ namespace JokeCentral.Controllers
     {
         public string Index()
         {
-            return "You're not completely useless, you can always serve as a bad example.";
+            return new JokeService().GetJoke().Text;
         }
     }
 }

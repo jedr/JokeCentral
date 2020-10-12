@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeCentral", "JokeCentral\JokeCentral.csproj", "{C0571DEC-824C-4CD0-8226-2324D6AB1592}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeCentral.Api", "JokeCentral.Api\JokeCentral.Api.csproj", "{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{C0571DEC-824C-4CD0-8226-2324D6AB1592}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0571DEC-824C-4CD0-8226-2324D6AB1592}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0571DEC-824C-4CD0-8226-2324D6AB1592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
