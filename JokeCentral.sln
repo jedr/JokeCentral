@@ -20,4 +20,28 @@ Global
 		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BFBEA1F-F1F9-456A-B4D2-957846AC35DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.FileWidth = 80
+		$4.TabsToSpaces = True
+		$4.NoTabsAfterNonTabs = True
+		$4.EolMarker = Unix
+		$4.scope = text/plain
+		$0.TextStylePolicy = $5
+		$5.inheritsSet = null
+		$5.scope = text/x-json
+		$0.JSONFormattingPolicy = $6
+		$6.AutoStructureCompletion = True
+		$6.BracePositions = SemiExpanded
+		$6.FormatOnPaste = True
+		$6.scope = text/x-json
+	EndGlobalSection
 EndGlobal
