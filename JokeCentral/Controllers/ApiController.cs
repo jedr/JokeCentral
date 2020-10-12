@@ -1,13 +1,15 @@
-﻿using JokeCentral.Api;
+﻿using System.Threading.Tasks;
+using JokeCentral.Api;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JokeCentral.Controllers
 {
     public class ApiController : Controller
     {
-        public string Index()
+        public async Task<string> Index()
         {
-            return new JokeService().GetJoke().Text;
+            var joke = await new JokeService().GetJokeAsync();
+            return joke.Text;
         }
     }
 }

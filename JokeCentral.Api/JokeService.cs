@@ -1,10 +1,14 @@
-﻿namespace JokeCentral.Api
+﻿using System.Threading.Tasks;
+
+namespace JokeCentral.Api
 {
-    public class JokeService
+    public class JokeService : IJokeService
     {
-        public Joke GetJoke()
+        private ChuckNorrisIo chuckNorrisIo = new ChuckNorrisIo();
+
+        public Task<Joke> GetJokeAsync()
         {
-            return new Joke("You're not completely useless, you can always serve as a bad example.");
+            return this.chuckNorrisIo.GetJokeAsync();
         }
     }
 }
