@@ -16,6 +16,7 @@ namespace JokeCentral
             services.AddOpenTelemetryTracing(builder =>
                 builder
                     .AddAspNetCoreInstrumentation()
+                    .AddHttpClientInstrumentation()
                     .AddConsoleExporter()
             );
         }
