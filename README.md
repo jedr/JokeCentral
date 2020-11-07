@@ -4,6 +4,17 @@ An exercise to write an ASP.NET Core app instrumented with OpenTelemetry tracing
 
 ## Running locally
 
+### Running in Docker
+
+This should work with both Linux and Windows containers.
+
+```sh
+docker build -t joke-central .
+docker run --rm -it --publish 5000:80 joke-central
+```
+
+### Running on bare metal
+
 This should run on either Windows, Linux or MacOS.
 
 Requirements:
@@ -23,7 +34,7 @@ cd JokeCentral
 dotnet run
 ```
 
-Go to <http://localhost:5000> or <http://localhost:5001>. You should see a line of text containing a joke.
+Go to <http://localhost:5000>. You should see a line of text containing a joke.
 
 You should also see traces in the app's console.
 
