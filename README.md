@@ -19,7 +19,7 @@ This should run on either Windows, Linux or MacOS.
 
 Requirements:
 
-- .NET Core SDK - see install instructions: <https://docs.microsoft.com/en-us/dotnet/core/install/>
+- .NET SDK 5.0 - see install instructions: <https://docs.microsoft.com/en-us/dotnet/core/install/>
 
 To build:
 
