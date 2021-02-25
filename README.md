@@ -13,6 +13,8 @@ docker build -t joke-central .
 docker run --rm -it --publish 5000:80 joke-central
 ```
 
+Go to <http://localhost:5000>. You should see a line of text containing a joke.
+
 ### Running on bare metal
 
 This should run on either Windows, Linux or MacOS.
