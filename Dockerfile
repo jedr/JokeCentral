@@ -1,19 +1,24 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /source
 
-COPY OpenTelemetryExtensions/*.csproj OpenTelemetryExtensions/
-COPY JokeCentral.Api/*.csproj JokeCentral.Api/
+COPY JokeCentral.sln ./
 COPY JokeCentral/*.csproj JokeCentral/
-RUN dotnet restore JokeCentral/JokeCentral.csproj
+COPY JokeCentral.Api/*.csproj JokeCentral.Api/
+COPY JokeCentral.Tests/*.csproj JokeCentral.Tests/
+COPY OpenTelemetryExtensions/*.csproj OpenTelemetryExtensions/
+RUN dotnet restore JokeCentral.sln
 
-COPY OpenTelemetryExtensions/ OpenTelemetryExtensions/
-COPY JokeCentral.Api/ JokeCentral.Api/
 COPY JokeCentral/ JokeCentral/
-WORKDIR /source/JokeCentral
-RUN dotnet build -c release --no-restore
+COPY JokeCentral.Api/ JokeCentral.Api/
+COPY JokeCentral.Tests/ JokeCentral.Tests/
+COPY OpenTelemetryExtensions/ OpenTelemetryExtensions/
+RUN dotnet build -c Release --no-restore
+
+FROM build as test
+ENTRYPOINT ["dotnet", "test", "-c", "Release", "--no-restore", "--no-build"]
 
 FROM build AS publish
-RUN dotnet publish -c release --no-build -o /app
+RUN dotnet publish JokeCentral -c Release --no-build -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app

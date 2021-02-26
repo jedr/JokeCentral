@@ -15,6 +15,13 @@ docker run --rm -it --publish 5000:80 joke-central
 
 Go to <http://localhost:5000>. You should see a line of text containing a joke.
 
+To only run tests in Docker, run:
+
+```sh
+docker build --target test -t joke-central-test .
+docker run --rm -it joke-central-test
+```
+
 ### Running on bare metal
 
 This should run on either Windows, Linux or MacOS.
@@ -27,6 +34,12 @@ To build:
 
 ```sh
 dotnet build
+```
+
+To test:
+
+```sh
+dotnet test
 ```
 
 To run, first go to the ASP.NET Core app's directory `JokeCentral`:
