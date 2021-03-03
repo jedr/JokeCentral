@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using OpenTelemetry.Logs;
 
 namespace JokeCentral
 {
@@ -12,6 +14,11 @@ namespace JokeCentral
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((logging) => 
+                {
+                    logging.ClearProviders();
+                    logging.AddOpenTelemetry(options => options.AddConsoleExporter());
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
