@@ -30,6 +30,18 @@ Requirements:
 
 - .NET SDK 5.0 - see install instructions: <https://docs.microsoft.com/en-us/dotnet/core/install/>
 
+  Note: Make sure .NET SDK has Nuget source set up (see https://github.com/dotnet/sdk/issues/4156#issuecomment-601791960).
+
+  ```sh
+  dotnet nuget list source
+  ```
+
+  If the output of this command is `No sources found`, run:
+
+  ```sh
+  dotnet nuget add source --name nuget.org https://api.nuget.org/v3/index.json
+  ```
+
 To build:
 
 ```sh
