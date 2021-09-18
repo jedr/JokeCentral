@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  jokecentral:
+    # image: jedr/joke-central:1.0.0
+    build: .
+    environment:
+      - OtelcolEndpoint=http://otelcol:4317
+    ports:
+      - "5000:80"
+
+  otelcol:
+    image: otel/opentelemetry-collector:0.29.0
+    command: ["--config=/etc/otelcol-config.yaml"]
+    volumes:
+      - ./examples/otelcol-config.yaml:/etc/otelcol-config.yaml
+    ports:
+      - "8888" # The collector's own metrics exposed in Prometheus format
+      - "4317" # OTLP gRPC receiver
+

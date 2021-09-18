@@ -1,4 +1,6 @@
 **/bin/
 **/obj/
 **/out/
+examples/
 Dockerfile
+docker-compose.yaml

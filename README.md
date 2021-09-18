@@ -22,6 +22,24 @@ docker build --target test -t joke-central-test .
 docker run --rm -it joke-central-test
 ```
 
+### Running with Docker Compose
+
+In this setup, the application sends its telemetry data to a separate OpenTelemetry instance,
+which displas that data to the console with the [loggingexporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/loggingexporter).
+See the [./docker-compose.yaml](./docker-compose.yaml) file for details.
+
+To start the JokeCental app and the OpenTelemetry instance:
+
+```sh
+docker compose up
+```
+
+Go to <http://localhost:5000/> to send a request to the JokeCentral application.
+After that, you should see telemetry data from both the JokeCentral application and OtelCol instance
+in the console output of Docker Compose.
+
+To shut down the app, press Ctrl+C and `docker compose down`.
+
 ### Running on bare metal
 
 This should run on either Windows, Linux or MacOS.
