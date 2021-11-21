@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
 
 COPY JokeCentral.sln ./
@@ -20,7 +20,7 @@ ENTRYPOINT ["dotnet", "test", "-c", "Release", "--no-restore", "--no-build"]
 FROM build AS publish
 RUN dotnet publish JokeCentral -c Release --no-build -o /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "JokeCentral.dll"]
