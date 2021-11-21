@@ -4,11 +4,11 @@ namespace JokeCentral.Api
 {
     public class JokeService : IJokeService
     {
-        private ChuckNorrisIo chuckNorrisIo = new ChuckNorrisIo();
+        private IcndbCom icndbCom = new IcndbCom();
 
         public Task<Joke> GetJokeAsync()
         {
-            return this.chuckNorrisIo.GetJokeAsync();
+            return this.icndbCom.GetJokeAsync();
         }
     }
 }
