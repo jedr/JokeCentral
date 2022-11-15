@@ -46,7 +46,7 @@ This should run on either Windows, Linux or MacOS.
 
 Requirements:
 
-- .NET SDK 6.0 - see install instructions: <https://docs.microsoft.com/en-us/dotnet/core/install/>
+- .NET SDK 7.0 - see install instructions: <https://docs.microsoft.com/en-us/dotnet/core/install/>
 
   Note: Make sure .NET SDK has Nuget source set up (see https://github.com/dotnet/sdk/issues/4156#issuecomment-601791960).
 
