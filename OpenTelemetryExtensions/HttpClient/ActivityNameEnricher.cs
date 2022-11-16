@@ -5,15 +5,9 @@ namespace OpenTelemetryExtensions.HttpClient
 {
     public class ActivityNameEnricher
     {
-        public static void Enrich(Activity activity, string eventName, object rawObject)
+        public static void Enrich(Activity activity, HttpRequestMessage request)
         {
-            if (eventName == "OnStartActivity")
-            {
-                if (rawObject is HttpRequestMessage request)
-                {
-                    activity.DisplayName = request.RequestUri.AbsolutePath;
-                }
-            }
+            activity.DisplayName = request.RequestUri.AbsolutePath;
         }
     }
 }

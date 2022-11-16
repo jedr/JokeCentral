@@ -30,7 +30,7 @@ namespace JokeCentral
                     .AddAspNetCoreInstrumentation()
                     .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("JokeCentral"))
                     .AddHttpClientInstrumentation(options =>
-                        options.Enrich = ActivityNameEnricher.Enrich)
+                        options.EnrichWithHttpRequestMessage = ActivityNameEnricher.Enrich)
                     .AddOtlpExporter(opt => opt.Endpoint = new Uri(this.Configuration["OtelcolEndpoint"]))
                     .AddConsoleExporter()
             );
