@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0.100 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0.103 AS build
 WORKDIR /source
 
 COPY JokeCentral.sln ./
