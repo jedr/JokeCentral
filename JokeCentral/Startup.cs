@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OpenTelemetry.Exporter;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using OpenTelemetryExtensions.HttpClient;
@@ -27,14 +28,18 @@ namespace JokeCentral
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             services.AddOpenTelemetry()
                 .WithTracing(builder =>
-                builder
-                    .AddAspNetCoreInstrumentation()
-                    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("JokeCentral"))
-                    .AddHttpClientInstrumentation(options =>
-                        options.EnrichWithHttpRequestMessage = ActivityNameEnricher.Enrich)
-                    .AddOtlpExporter(opt => opt.Endpoint = new Uri(this.Configuration["OtelcolEndpoint"]))
-                    .AddConsoleExporter()
-            );
+                    builder
+                        .AddAspNetCoreInstrumentation()
+                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("JokeCentral"))
+                        .AddHttpClientInstrumentation(options =>
+                            options.EnrichWithHttpRequestMessage = ActivityNameEnricher.Enrich)
+                        .AddOtlpExporter(opt => {
+                            opt.Endpoint = new Uri(this.Configuration["OtelcolEndpoint"]);
+                            // opt.Protocol = OtlpExportProtocol.Grpc;
+                            opt.Protocol = OtlpExportProtocol.HttpProtobuf;
+                        })
+                        .AddConsoleExporter()
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
