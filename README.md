@@ -126,3 +126,8 @@ Activity.TagObjects:
 Resource associated with Activity:
     service.name: unknown_service:JokeCentral
 ```
+
+### Troubleshooting
+
+The self-diagnostics file [OTEL_DIAGNOSTICS.json](./JokeCentral/OTEL_DIAGNOSTICS.json) can be used to troubleshoot the instrumentation.
+See the [docs](https://github.com/open-telemetry/opentelemetry-dotnet/blob/core-1.4.0/src/OpenTelemetry/README.md#self-diagnostics) for details.
