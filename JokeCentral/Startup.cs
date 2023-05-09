@@ -25,7 +25,8 @@ namespace JokeCentral
         {
             services.AddControllersWithViews();
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-            services.AddOpenTelemetryTracing(builder =>
+            services.AddOpenTelemetry()
+                .WithTracing(builder =>
                 builder
                     .AddAspNetCoreInstrumentation()
                     .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("JokeCentral"))
