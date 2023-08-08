@@ -20,7 +20,7 @@ ENTRYPOINT ["dotnet", "test", "-c", "Release", "--no-restore", "--no-build"]
 FROM build AS publish
 RUN dotnet publish JokeCentral -c Release --no-build -o /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0.8
+FROM mcr.microsoft.com/dotnet/aspnet:7.0.10
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "JokeCentral.dll"]
